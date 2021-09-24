@@ -2,14 +2,6 @@
 require_once './vendor/autoload.php';
 use ExemploPDOMySQL\MySQLConnection; //PDO;
 
-if($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $bd = new MySQLConnection();
-    $comando = $bd->prepare('INSERT INTO generos(nome) VALUES(:nome)');
-    $comando->execute([':nome' => $_POST['nome']]);
-
-    header('Location:/index.php');
-}
-
 $bd = new MySQLConnection(); //PDO('mysql:host=localhost;dbname=biblioteca', 'root', '');
 
 $comando = $bd->prepare('SELECT *FROM generos');
@@ -38,6 +30,7 @@ $generos = $comando->fetchALL(PDO::FETCH_ASSOC);
             <td><?= $g['nome'] ?></td>   
             <td>
                 <a href="update.php?id=<?= $g['id'] ?>">Editar</a>
+                <a href="delete.php?id=<?= $g['id'] ?>">Excluir</a>
             </td>
         </tr>
     <?php endforeach ?>
