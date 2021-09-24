@@ -1,6 +1,6 @@
 <?php
 require_once './vendor/autoload.php';
-use ExemploPDOMySql\MySQLConnection;
+use ExemploPDOMySQL\MySQLConnection;
 
 $bd = new MySQLConnection();
 $genero = null;
