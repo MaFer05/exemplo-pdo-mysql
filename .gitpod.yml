@@ -2,4 +2,3 @@ image: gitpod/workspace-mysql
 
 tasks:
   - init: mysql -u root < ./assets/sql/create_database.sql ; mysql -u root bibliotec < ./assets/sql/dados_iniciais.sql
-  
